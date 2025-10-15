@@ -1,0 +1,230 @@
+/* === TAILWIND CSS IMPORTS === */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* === CUSTOM VARIANT DEFINITIONS === */
+/* Define dark mode variant for Tailwind CSS v4 */
+@custom-variant dark (&:is(.dark *));
+
+/* === CSS CUSTOM PROPERTIES (DESIGN TOKENS) === */
+
+:root {
+  /* === LIGHT MODE COLOR PALETTE === */
+  /* Inverted color scheme for light mode - provides clean, professional appearance */
+
+  /* Base colors */
+  --background: #ffffff; /* Pure white background */
+  --foreground: #000000; /* Black text for maximum contrast */
+
+  /* Card and surface colors */
+  --card: #f8f9fa; /* Light gray card backgrounds */
+  --card-foreground: #000000; /* Black text on cards */
+  --popover: #ffffff; /* White popover backgrounds */
+  --popover-foreground: #000000; /* Black popover text */
+
+  /* Brand colors - green theme for cyberpunk aesthetic */
+  --primary: #059669; /* Emerald green primary */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #10b981; /* Lighter emerald secondary */
+  --secondary-foreground: #ffffff; /* White text on secondary */
+
+  /* Neutral colors */
+  --muted: #e5e7eb; /* Light gray muted backgrounds */
+  --muted-foreground: #6b7280; /* Medium gray muted text */
+  --accent: #10b981; /* Emerald accent color */
+  --accent-foreground: #ffffff; /* White accent text */
+
+  /* Status colors */
+  --destructive: #dc2626; /* Red for destructive actions */
+  --destructive-foreground: #ffffff; /* White destructive text */
+
+  /* UI element colors */
+  --border: #e5e7eb; /* Light gray borders */
+  --input: #f8f9fa; /* Light gray input backgrounds */
+  --ring: #059669; /* Emerald focus rings */
+
+  /* Chart colors - green theme variations */
+  --chart-1: #059669; /* Primary chart color */
+  --chart-2: #10b981; /* Secondary chart color */
+  --chart-3: #00ff41; /* Bright green accent */
+  --chart-4: #0891b2; /* Cyan complement */
+  --chart-5: #f59e0b; /* Orange contrast */
+
+  /* Border radius */
+  --radius: 0.25rem; /* 4px default border radius */
+
+  /* Sidebar colors (for future use) */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #059669;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #10b981;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #059669;
+}
+
+.dark {
+  /* === DARK MODE COLOR PALETTE === */
+  /* Cyberpunk hacker aesthetic with green matrix theme */
+
+  /* Base colors - deep black with matrix green */
+  --background: #0a0a0a; /* Very dark background for terminal feel */
+  --foreground: #00ff41; /* Bright matrix green text */
+
+  /* Card and surface colors */
+  --card: #111111; /* Dark gray cards */
+  --card-foreground: #00ff41; /* Matrix green card text */
+  --popover: #0a0a0a; /* Dark popover backgrounds */
+  --popover-foreground: #00ff41; /* Matrix green popover text */
+
+  /* Brand colors - emerald theme maintained */
+  --primary: #059669; /* Emerald primary (consistent) */
+  --primary-foreground: #ffffff; /* White primary text */
+  --secondary: #10b981; /* Emerald secondary (consistent) */
+  --secondary-foreground: #ffffff; /* White secondary text */
+
+  /* Neutral colors - dark theme */
+  --muted: #333333; /* Dark gray muted backgrounds */
+  --muted-foreground: #888888; /* Medium gray muted text */
+  --accent: #10b981; /* Emerald accent (consistent) */
+  --accent-foreground: #ffffff; /* White accent text */
+
+  /* Status colors */
+  --destructive: #dc2626; /* Red destructive (consistent) */
+  --destructive-foreground: #ffffff; /* White destructive text */
+
+  /* UI element colors - dark theme */
+  --border: #333333; /* Dark gray borders */
+  --input: #111111; /* Dark input backgrounds */
+  --ring: #059669; /* Emerald focus rings (consistent) */
+
+  /* Chart colors - same as light mode for consistency */
+  --chart-1: #059669;
+  --chart-2: #10b981;
+  --chart-3: #00ff41;
+  --chart-4: #0891b2;
+  --chart-5: #f59e0b;
+
+  /* Sidebar colors - dark theme */
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #00ff41;
+  --sidebar-primary: #059669;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #10b981;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: #059669;
+}
+
+/* === TAILWIND CSS V4 THEME CONFIGURATION === */
+@theme inline {
+  /* Font family variables */
+  --font-sans: var(--font-dm-sans); /* DM Sans for body text */
+  --font-mono: var(--font-geist-mono); /* Geist Mono for code/terminal */
+
+  /* Color token mappings - connects CSS custom properties to Tailwind */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Chart color mappings */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Border radius scale */
+  --radius-sm: calc(var(--radius) - 4px); /* 0px - very sharp */
+  --radius-md: calc(var(--radius) - 2px); /* 2px - slightly rounded */
+  --radius-lg: var(--radius); /* 4px - default rounded */
+  --radius-xl: calc(var(--radius) + 4px); /* 8px - more rounded */
+
+  /* Sidebar color mappings */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* === BASE LAYER STYLES === */
+@layer base {
+  /* Universal styles for all elements */
+  * {
+    /* Apply consistent border and outline colors using design tokens */
+    @apply border-border outline-ring/50;
+  }
+
+  /* Body element base styles */
+  body {
+    /* Set background, text color, and font family using design tokens */
+    @apply bg-background text-foreground font-mono;
+  }
+}
+
+/* === CUSTOM ANIMATIONS === */
+
+/**
+ * Blink Animation
+ *
+ * Creates a classic terminal cursor blink effect.
+ * Used for terminal cursors and other blinking indicators.
+ *
+ * Timing:
+ * - 0-50%: Visible (opacity: 1)
+ * - 51-100%: Hidden (opacity: 0)
+ *
+ * This creates a sharp on/off blink rather than a fade.
+ */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1; /* Visible state */
+  }
+  51%,
+  100% {
+    opacity: 0; /* Hidden state */
+  }
+}
+
+/**
+ * Blink Utility Class
+ *
+ * Applies the blink animation with:
+ * - 1 second duration
+ * - Step-end timing (sharp transitions)
+ * - Infinite repetition
+ *
+ * Usage: Add 'blink' class to any element for terminal cursor effect
+ */
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* === REMOVED UNUSED ANIMATIONS === */
+/* 
+ * Previously included glitch, flicker, and typing animations
+ * have been removed to reduce CSS bundle size and improve performance.
+ * Only the essential blink animation remains for terminal cursors.
+ */
