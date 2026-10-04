@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { DM_Sans } from "next/font/google"
+import localFont from "next/font/local"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
@@ -9,12 +9,14 @@ import "./globals.css"
  * Font Configuration
  *
  * DM Sans - Clean, modern sans-serif font for the cyberpunk aesthetic
- * Loaded with multiple weights for typography hierarchy
+ * Bundled locally so production builds do not depend on Google Fonts responses
  */
-const dmSans = DM_Sans({
-  subsets: ["latin"],
+const dmSans = localFont({
+  src: "./fonts/dm-sans.woff2",
   variable: "--font-dm-sans", // CSS variable for Tailwind integration
-  weight: ["400", "500", "700"], // Regular, medium, and bold weights
+  weight: "100 1000",
+  style: "normal",
+  display: "swap",
 })
 
 /**
