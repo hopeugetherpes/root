@@ -1,0 +1,3 @@
+overrides:
+  "next>postcss": "$postcss"
+  "recharts>lodash": "^4.18.0"
