@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
-import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
@@ -123,7 +122,6 @@ export const metadata: Metadata = {
  *
  * Wraps the entire application with:
  * - Font configuration
- * - Analytics tracking
  * - Loading states
  * - Base styling classes
  */
@@ -137,9 +135,6 @@ export default function RootLayout({
       <body className={`font-sans ${dmSans.variable} antialiased`}>
         {/* Suspense wrapper for loading states during navigation */}
         <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-
-        {/* Vercel Analytics for performance and usage tracking */}
-        <Analytics />
 
         <script
           dangerouslySetInnerHTML={{
